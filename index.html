@@ -440,7 +440,7 @@
     </section>
 
     <!-- Fourth Section: Projects -->
-    <section id="projects" class="section scrollspy">
+    <!--<section id="projects" class="section scrollspy">
       <h3 class="page-title white-text teal">Projects</h3>
       <div class="container">
         <div class="row">
@@ -616,11 +616,25 @@
               <div class="card-reveal">
       
 
-           ************* -->
+           ************* 
         </div>
       </div>
       
-    </section> 
+    </section> -->
+
+    <section id="projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects</h3>
+
+      <div class="container">
+
+        <div id="projects-container"></div>
+
+        <button id="load-more">
+          Load More
+        </button>
+
+      </div>
+    </section>
 
     <!-- Fifth Section: Skills -->
     <section id="skills" class="section scrollspy">
@@ -927,6 +941,65 @@
       })
     })
   </script>
+
+<script>
+
+const projects = [
+  {
+    title: "Autonomous Waste Sorting Robot",
+    description: "Designed a machine learning pipeline for waste classification."
+  },
+  {
+    title: "Database System Design Project",
+    description: "Designed and implemented a normalized relational database."
+  },
+  {
+    title: "Mapping Software Project",
+    description: "Built a route-planning application using graph algorithms."
+  },
+  {
+    title: "Sliding Tile Game",
+    description: "Implemented a tile-based game in C and Assembly."
+  }
+];
+
+let displayedProjects = 2;
+
+function renderProjects() {
+  const container = document.getElementById("projects-container");
+
+  container.innerHTML = "";
+
+  for (let i = 0; i < displayedProjects; i++) {
+    container.innerHTML += `
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">${projects[i].title}</span>
+          <p>${projects[i].description}</p>
+        </div>
+      </div>
+    `;
+  }
+}
+
+renderProjects();
+
+document.getElementById("load-more").addEventListener("click", function() {
+
+  displayedProjects += 2;
+
+  if (displayedProjects > projects.length) {
+    displayedProjects = projects.length;
+  }
+
+  renderProjects();
+
+  if (displayedProjects === projects.length) {
+    document.getElementById("load-more").style.display = "none";
+  }
+});
+
+</script>
 </body>
 
 </html>
