@@ -260,7 +260,6 @@
             <div class='buttons'>
               <a href="#about" class="readme">Read More</a>
               <a href="#contact" class="contactme">Contact Me</a>
-              <button onclick="toggleDarkMode()" class="readme">Toggle Dark Mode</button>
             </div>
           </div>
         </div>
@@ -321,6 +320,12 @@
           aria-label='Navigate to the article "Scalable CSS"'
           href="https://mrmrs.github.io/writing/2016/03/24/scalable-css/">Design Systems</a>
         </p> -->
+
+        <button onclick="showFact()" class="readme">
+          Show Fun Fact
+        </button>
+
+        <p id="fun-fact"></p>
       </div>
     </section>
 
@@ -1001,6 +1006,24 @@ document.getElementById("load-more").addEventListener("click", function() {
 });
 
 </script>
+
+<script>
+function showFact() {
+
+  const facts = [
+    "I speak English and Dutch.",
+    "I love to sing.",
+    "I was born in British Columbia, Canada.",
+    "I enjoy baking, especially bread."
+  ];
+
+  const randomIndex = Math.floor(Math.random() * facts.length);
+
+  document.getElementById("fun-fact").innerText =
+    facts[randomIndex];
+}
+</script>
+
 </body>
 
 </html>
